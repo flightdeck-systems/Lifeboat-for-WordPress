@@ -23,7 +23,7 @@ To use this script follow the below steps:
   ./lifeboat.sh
   ```
 5. Automate the process with a cron job.
-  - ```shell
+  ```shell
   crontab -e
   MAILTO="webmaster@YOUR-DOMAIN.com"
   0 0 */10 * * /home/<YOUR-USERNAME>/lifeboat.sh
