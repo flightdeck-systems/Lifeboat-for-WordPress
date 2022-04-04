@@ -1,14 +1,16 @@
 #!/bin/bash
-#Flightdeck Liftboat for WordPress
-#https://github.com/flight-deck/liftboat-for-wordpress
+#Flightdeck Liftboat for WordPress - https://github.com/flight-deck/liftboat
 echo "Starting DB backup. Please wait ..."
 echo -e #new line
 
-WPDBNAME=`cat /home/hco/webapps/usa/wp-config.php | grep DB_NAME | cut -d \' -f 4`
-WPDBUSER=`cat /home/hco/webapps/usa/wp-config.php | grep DB_USER | cut -d \' -f 4`
-WPDBPASS=`cat /home/hco/webapps/usa/wp-config.php | grep DB_PASSWORD | cut -d \' -f 4`
+site_file_path="/THE-PATH-TO-YOUR-SITE-FILES"
+backup_path="/WHERE-YOU-WANT-YOUR-FILES-TO-BE-STORED"
 
-backup_path="/root/backups"
+
+WPDBNAME=`cat $site_file_path/wp-config.php | grep DB_NAME | cut -d \' -f 4`
+WPDBUSER=`cat $site_file_path/wp-config.php | grep DB_USER | cut -d \' -f 4`
+WPDBPASS=`cat $site_file_path/wp-config.php | grep DB_PASSWORD | cut -d \' -f 4`
+
 
 mysql_backup_file=$backup_path/"`date "+%Y-%m-%d"`"-usa.sql
 
@@ -22,7 +24,6 @@ echo -e #new line
 echo "Starting site backup. Please wait ..."
 echo -e #new line
 
-site_file_path="/home/hco/webapps/usa"
 site_backup_file=$backup_path/"`date "+%Y-%m-%d"`"-usa.zip
 
 zip -r $site_backup_file $site_file_path
@@ -30,7 +31,7 @@ zip -r $site_backup_file $site_file_path
 echo -e
 echo "Site backup is complete. - $site_backup_file"
 echo -e
-echo "Combine files. Please wait..."   
+echo "Combine files. Please wait..."
 
 full_backup_file=$backup_path/"`date "+%Y-%m-%d"`"-FULL.zip
 
