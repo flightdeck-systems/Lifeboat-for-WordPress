@@ -1,4 +1,4 @@
-# Flightdeck LifeBoat for WordPress
+# Flightdeck - LifeBoat for WordPress
 
 This is just a simple Bash script to provide a small level of support to your WordPress site, by backing up all WordPress files and database.
 
