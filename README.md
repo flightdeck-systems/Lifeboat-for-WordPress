@@ -1,6 +1,11 @@
 # Flightdeck - LifeBoat for WordPress
 
-This is just a simple Bash script to provide a small level of support to your WordPress site, by backing up all WordPress files and database.
+Just a simple Bash script to provide a small level of support to your WordPress site, by backing up all WordPress files and database.
+
+### Purpose
+The main purpose of this script is to a small level of devops or network administration to WordPress without having the need to install plugins.
+In our experience, most of the backup solutions for WordPress add unnecessary bloat with slow performance – especially on larger sites.
+
 
 ### Usages
 To use this script follow the below steps:
@@ -22,11 +27,15 @@ To use this script follow the below steps:
   ```shell
   ./lifeboat.sh
   ```
-5. Automate the process with a cron job.
+5. Optional: Automate the process with a cron job.
   ```shell
   crontab -e
+  ```
+
+  ```shell
   MAILTO="webmaster@YOUR-DOMAIN.com"
   0 0 */10 * * /home/<YOUR-USERNAME>/lifeboat.sh
   #👆 Runs on every 10th day-of-month at midnight.
   ```
+
 
